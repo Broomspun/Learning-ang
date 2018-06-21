@@ -1,0 +1,8 @@
+a {
+  cursor: pointer;
+}
+.row {
+  display: flex!important;
+  flex-wrap: wrap!important;
+  justify-content: center!important;
+}

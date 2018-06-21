@@ -23,7 +23,14 @@
         <li><a routerLink="/map" >Map</a></li>
         <li><a routerLink="/github" >Github Search</a></li>
         <li><a routerLink="/cribs" >Real-Estate</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li appDropdown>
+          <a routerLink="/movies" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="movies/populars">Populars</a></li>
+            <li><a routerLink="movies/thearters">Thearters</a></li>
+            <li><a routerLink="movies/search">Search</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
