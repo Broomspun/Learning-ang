@@ -1,0 +1,7 @@
+.thumbnail{
+  margin-top: 30px;
+}
+
+.thumbnail a>img, .thumbnail>img {
+  min-height: 225px;
+}

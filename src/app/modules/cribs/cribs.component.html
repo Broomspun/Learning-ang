@@ -1,0 +1,220 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 price-form">
+      <div class="row price-form-row" *ngIf="!addListing && !editListing">
+        <div class="col-sm-6">
+          <div class="input-group">
+            <span class="input-group-addon">Min Price</span>
+            <select name="minPrice" id="minPrice" [(ngModel)]="priceInfo.min" (change)="changeMinPrice(priceInfo.min)" class="form-control">
+              <option value="100000">$100,000</option>
+              <option value="200000">$200,000</option>
+              <option value="300000">$300,000</option>
+              <option value="400000">$400,000</option>
+              <option value="500000">$500,000</option>
+              <option value="600000">$600,000</option>
+              <option value="700000">$700,000</option>
+              <option value="800000">$800,000</option>
+              <option value="900000">$900,000</option>
+              <option value="1000000">$1,000,000</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="input-group">
+            <span class="input-group-addon">Max Price</span>
+            <select type="select" name="maxPrice" id="maxPrice" [(ngModel)]="priceInfo.max" (change)="changeMaxPrice(priceInfo.max)" class="form-control">
+              <option value="100000">$100,000</option>
+              <option value="200000">$200,000</option>
+              <option value="300000">$300,000</option>
+              <option value="400000">$400,000</option>
+              <option value="500000">$500,000</option>
+              <option value="600000">$600,000</option>
+              <option value="700000">$700,000</option>
+              <option value="800000">$800,000</option>
+              <option value="900000">$900,000</option>
+              <option value="1000000">$1,000,000</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" (click)="toggleAddListing()" [hidden]="addListing==true || editListing===true">Add Listing</button>
+      <button class="btn btn-danger" (click)="toggleAddListing()" [hidden]="addListing===false">Close</button>
+
+      <div class="listing-form" *ngIf="addListing===true">
+
+        <h3>Add a Listing</h3>
+          <div class="row listing-form-row">
+            <div class="col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">Address</span>
+                <input type="text" placeholder="Enter the address" class="form-control" [(ngModel)]="address"  >
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">Price</span>
+                <input type="text" placeholder="Enter the price" class="form-control" [(ngModel)]="price">
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">Property Type</span>
+                <select type="select" name="propertyType" id="propertyType1" class="form-control" [(ngModel)]="type">
+                  <option value="House">House</option>
+                  <option value="Condo">Condo</option>
+                  <option value="Duplex">Duplex</option>
+                  <option value="Apartment">Apartment</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row listing-form-row">
+            <div class="col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">Description</span>
+                <textarea type="text" placeholder="Enter the description" class="form-control" [(ngModel)]="description"></textarea>
+              </div>
+            </div>
+
+            <div class="col-sm-8">
+
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Beds</span>
+                  <input type="text" placeholder="Bedrooms" class="form-control" [(ngModel)]="detail.bedrooms">
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Baths</span>
+                  <input type="text" placeholder="Bathrooms" class="form-control" [(ngModel)]="detail.bathrooms">
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">SqFt</span>
+                  <input type="text" placeholder="Square Footage" class="form-control" [(ngModel)]="detail.area">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="btn btn-primary listing-button" (click)="addCrib()" [hidden]="addListing==false">Add</button>
+
+      </div>
+
+      <div class="listing-form" *ngIf="editListing">
+
+      <h3>Edit Listing</h3>
+
+      <div class="row listing-form-row">
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">Address</span>
+      <input type="text" placeholder="Enter the address" class="form-control" [(ngModel)]="existingListing.address">
+      </div>
+      </div>
+
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">Price</span>
+      <input type="text" placeholder="Enter the price" class="form-control" [(ngModel)]="existingListing.price">
+      </div>
+      </div>
+
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">Property Type</span>
+      <select type="select" name="propertyType" id="propertyType" class="form-control" [(ngModel)]="existingListing.type">
+      <option value="House">House</option>
+      <option value="Condo">Condo</option>
+      <option value="Duplex">Duplex</option>
+      <option value="Apartment">Apartment</option>
+      </select>
+      </div>
+      </div>
+      </div>
+
+      <div class="row listing-form-row">
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">Description</span>
+      <textarea type="text" placeholder="Enter the description" class="form-control" [(ngModel)]="existingListing.description"></textarea>
+      </div>
+      </div>
+
+      <div class="col-sm-8">
+
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">Beds</span>
+      <input type="text" placeholder="Bedrooms" class="form-control" [(ngModel)]="existingListing.details.bedrooms">
+      </div>
+      </div>
+
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">Baths</span>
+      <input type="text" placeholder="Bathrooms" class="form-control" [(ngModel)]="existingListing.details.bathrooms">
+      </div>
+      </div>
+
+      <div class="col-sm-4">
+      <div class="input-group">
+      <span class="input-group-addon">SqFt</span>
+      <input type="text" placeholder="Square Footage" class="form-control" [(ngModel)]="existingListing.details.area">
+      </div>
+      </div>
+
+      </div>
+      </div>
+
+      <button class="btn btn-primary listing-button" style="margin-right: 10px" (click)="saveCribEdit()" [hidden]="!editListing">Save</button>
+      <button class="btn btn-danger listing-button" (click)="deleteCrib(existingListing)" [hidden]="editListing!=true">Delete</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="row cribs">
+
+    <!--<div *ngFor="let crib of ( cribs | cribsFilter: priceInfo.min : priceInfo.max  ); let i = index ">-->
+    <div *ngFor="let crib of ( cribs  ); let i = index ">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="assets/img/cribs/{{crib.image}}.jpg"/>
+
+          <div class="caption">
+            <div [hidden]="bShowDetails[i] === true">
+              <h3><i class="glyphicon glyphicon-tag"></i> {{crib.price | currency}}</h3>
+              <h4><i class="glyphicon glyphicon-home"></i> {{crib.address}}
+                <span class="label label-primary label-sm">{{crib.type}}</span>
+              </h4>
+            </div>
+          </div>
+
+          <button class="btn btn-xs btn-success" [hidden]="bShowDetails[i] === true" (click)="toggleDetails(i)">Details</button>
+          <button class="btn btn-xs btn-danger" style="margin-right: 5px;" [hidden]="bShowDetails[i] != true"  (click)="toggleDetails(i)">Close</button>
+          <button class="btn btn-xs btn-primary" [hidden]="bShowDetails[i] != true" (click)="editCrib(crib)">Edit</button>
+
+          <div class="details" [hidden]="bShowDetails[i] !== true">
+            <h4>
+              <span class="label label-primary">Beds: {{crib.details.bedrooms}}</span>
+              <span class="label label-primary">Baths: {{crib.details.bathrooms}}</span>
+              <span class="label label-primary">SqFt: {{crib.details.area}}</span>
+            </h4>
+            <p>{{crib.description}}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

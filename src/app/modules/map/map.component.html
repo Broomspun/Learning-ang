@@ -1,0 +1,88 @@
+<nav class="navbar navbar-inverse" style="margin-top: 30px;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">MapIt</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="map">
+        <agm-map [latitude]="lat"
+                 [longitude]="lng"
+                 [zoom]="zoom"
+                 [disableDefaultUI]="false"
+                 [zoomControl]="false"
+                 (mapClick)="mapClicked($event)">
+
+          <agm-marker
+            *ngFor="let m of markers; let i = index"
+            (markerClick)="clickedMarker(m.name, i)"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [label]="m.name"
+            [markerDraggable]="m.draggable"
+            (dragEnd)="markerDragEnd(m, $event)">
+
+            <agm-info-window>
+              <strong>{{m.name}}</strong>
+            </agm-info-window>
+
+          </agm-marker>
+
+
+          <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
+                      [radius]="5000"
+                      [fillColor]="'red'"
+                      [circleDraggable]="true"
+                      [editable]="true">
+          </agm-circle>
+
+        </agm-map>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add New Marker</h3>
+        </div>
+        <div class="panel-body">
+          <form (submit)="addMarker()">
+            <label>Location Name </label>
+            <input type="text"  ngModel = "markerName" name="markerName">
+
+            <label>Latitude </label>
+            <input type="text" ngModel  = "markerLat" name="markerLat">
+
+            <label>Longitude </label>
+            <input type="text" ngModel ="markerLng" name="markerLng">
+
+            <label>Draggable </label>
+            <Select type="text" ngModel = "markerDraggable" name="markerDraggable">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </Select>
+            <input type="submit" value="Map It!"/>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
