@@ -36,6 +36,10 @@ export class MovieService {
     '&page=' + this.page + '&query=' + this.query + '&include_adult=true', 'callback');
   }
 
+  getDetail(id: string): Observable<any> {
+    return this.http.jsonp('https://api.themoviedb.org/3/movie/' + id + '?api_key=' + this.apikey, 'callback');
+  }
+
   updateQuery(query) {
     this.query = query;
   }

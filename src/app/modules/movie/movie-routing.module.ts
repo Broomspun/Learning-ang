@@ -4,6 +4,7 @@ import {MovieComponent} from './movie.component';
 import {PopularsComponent} from './populars/populars.component';
 import {TheatersComponent} from './theaters/theaters.component';
 import {MoviesComponent} from './movies/movies.component';
+import {DetailComponent} from './detail/detail.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'search',
         component: MoviesComponent
+      },
+      {
+        path: ':id',
+        component: DetailComponent
       }
     ]
   }

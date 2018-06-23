@@ -10,6 +10,7 @@ import {MovieService} from '../../services/movie/movie.service';
 import { TheatersComponent } from './theaters/theaters.component';
 import { PopularsComponent } from './populars/populars.component';
 import {PagerService} from '../../services/movie/pager.service';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {PagerService} from '../../services/movie/pager.service';
     MovieComponent,
     MoviesComponent,
     TheatersComponent,
-    PopularsComponent
+    PopularsComponent,
+    DetailComponent
   ],
   providers: [
     MovieService,
