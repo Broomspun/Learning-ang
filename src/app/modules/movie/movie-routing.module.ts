@@ -20,7 +20,7 @@ const routes: Routes = [
         component: TheatersComponent
       },
       {
-        path: 'search',
+        path: '',
         component: MoviesComponent
       },
       {

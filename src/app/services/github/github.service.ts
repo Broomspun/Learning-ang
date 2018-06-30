@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
+import {map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +16,7 @@ export class GithubService {
     this.username = 'broomspun';
   }
 
-  getUser() {
+  getUser(): Observable<any> {
     return this.http.get('http://api.github.com/users/'  + this.username + '?client_id=' + this.client_id + '?client_secret=' + this.client_secret);
   }
 

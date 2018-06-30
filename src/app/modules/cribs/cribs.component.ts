@@ -72,11 +72,13 @@ export class CribsComponent implements OnInit {
       'image': 'default-crib'
     };
 
-    console.log(newListing);
+    this._cribService.createCrib(newListing)
+      .subscribe(res => {
+        this.cribs.push(newListing);
+      });
 
-    if (newListing) {
-      this.cribs.push(newListing);
-    }
+    this.addListing = false;
+    this.editListing = false;
   }
 
   saveCribEdit() {

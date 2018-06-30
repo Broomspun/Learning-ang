@@ -32,7 +32,8 @@
             "scripts": [
               "vendor/jquery/dist/jquery.min.js",
               "vendor/bootstrap/dist/js/bootstrap.min.js",
-              "vendor/html5-boilerplate/dist/js/vendor/modernizr-3.6.0.min.js"
+              "vendor/html5-boilerplate/dist/js/vendor/modernizr-3.6.0.min.js",
+              "node_modules/socket.io-client/dist/socket.io.js"
             ]
           },
           "configurations": {

@@ -9,18 +9,7 @@ const routes: Routes = [
   {
     path: 'simple',
     component: JumbotronComponent,
-    children: [
-      {
-        path: 'jumbotron',
-        component: JumbotronComponent
-      },
-      {
-        path: 'about',
-        component: AboutComponent
-      }
-    ]
   }
-
 ];
 
 @NgModule({

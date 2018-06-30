@@ -14,7 +14,7 @@ import {GithubService} from '../../services/github/github.service';
     CommonModule,
     GithubRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     GithubComponent,

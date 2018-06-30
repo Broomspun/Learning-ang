@@ -21,5 +21,10 @@
   margin-right: 5px;
 }
 .cribs .col-sm-4:nth-child(3n){
-clear: both;
+/*clear: both;*/
+}
+.cribs {
+  display: flex!important;
+  flex-wrap: wrap!important;
+  justify-content: center!important;
 }
