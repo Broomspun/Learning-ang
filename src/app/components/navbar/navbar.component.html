@@ -7,27 +7,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Angular Learning</a>
+      <a class="navbar-brand" routerLink=""><img src="assets/img/angular-icon.svg" style="margin-top: -8px;" width="36px"/></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a routerLink="">Home</a></li>
-        <li>
-          <a routerLink="/simple"  role="button" aria-haspopup="true" aria-expanded="false" >
-            Simple</a>
-        </li>
-        <li><a routerLink="/map" >Map</a></li>
-        <li><a routerLink="/github" >Github Search</a></li>
-        <li><a routerLink="/cribs" >Real-Estate</a></li>
-        <li appDropdown>
+        <li routerLinkActive="active"><a routerLink="/map" >Map</a></li>
+        <li routerLinkActive="active"><a routerLink="/github" >Github Search</a></li>
+        <li routerLinkActive="active"><a routerLink="/cribs" >Real-Estate</a></li>
+        <li appDropdown routerLinkActive="active">
           <a routerLink="/movies" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a routerLink="movies/populars">Populars</a></li>
             <li><a routerLink="movies/thearters">Thearters</a></li>
           </ul>
         </li>
-        <li><a routerLink="/restapp" >REST API</a></li>
-        <li><a routerLink="/chat" >Socket Chat</a></li>
+        <li routerLinkActive="active"><a routerLink="/restapp" >REST API</a></li>
+        <li routerLinkActive="active"><a routerLink="/chat" >Socket Chat</a></li>
+        <li routerLinkActive="active"><a routerLink="/meantodo" >Meantodo</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

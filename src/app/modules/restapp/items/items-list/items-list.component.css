@@ -1,0 +1,11 @@
+.container {
+  display: flex!important;
+  margin: 10px;
+  flex-wrap: wrap; }
+
+.container [class*="col"] {
+  padding: 10px;
+  flex: 1!important; }
+mat-list-item {
+  cursor: pointer;
+}

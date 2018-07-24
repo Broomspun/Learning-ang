@@ -1,0 +1,23 @@
+
+mat-card {
+  margin-bottom: 20px;
+}
+
+mat-card-header {
+  margin-bottom: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container [class*="col"] {
+  padding: 10px;
+  flex: 1; }

@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Items</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list
+      [@listAnimation]="prepareListState()"
+      [@.disabled]="animationsDisabled">
+      <mat-list-item
+        *ngFor="let item of items; trackBy: trackItem"
+        (click)="selected.emit(item)">
+        <h3 mat-line>{{item.name}}</h3>
+        <button *ngIf="!readonly" mat-icon-button (click)="deleted.emit(item);$event.stopImmediatePropagation();">
+          <mat-icon>close</mat-icon>
+        </button>
+        <p mat-line>
+          {{item.description}}
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

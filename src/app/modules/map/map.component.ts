@@ -38,7 +38,7 @@ export class MapComponent implements OnInit {
       lat: m.lat,
       lng: m.lng,
       draggable: false
-    }
+    };
 
     let newLat = $event.coords.lat;
     let newLng = $event.coords.lng;
@@ -61,19 +61,20 @@ export class MapComponent implements OnInit {
 
   addMarker() {
     console.log('Adding Marker');
+    let isDraggable;
 
     if ( this.markerDraggable === 'yes') {
-      var isDraggable = true;
+      isDraggable = true;
     } else {
-      var is_Draggable = false;
+      isDraggable = false;
     }
 
-    var newMarker = {
+    let newMarker = {
       name: this.markerName,
       lat: parseFloat(this.markerLat),
       lng: parseFloat(this.markerLng),
       draggable: isDraggable
-    }
+    };
 
     this.markers.push(newMarker);
     localStorage.setItem('markers', JSON.stringify(this.markers));

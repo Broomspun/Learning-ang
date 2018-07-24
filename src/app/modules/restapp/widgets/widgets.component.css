@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container [class*="col"] {
+  padding: 10px;
+  flex: 1; }

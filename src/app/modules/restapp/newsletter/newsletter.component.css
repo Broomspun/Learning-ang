@@ -1,0 +1,11 @@
+mat-card {
+  margin-bottom: 20px;
+}
+
+mat-card-header {
+  margin-bottom: 10px;
+}
+
+.full-width {
+  width: 100%;
+}

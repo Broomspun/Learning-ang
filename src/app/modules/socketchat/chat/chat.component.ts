@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ChatService} from '../../../services/socketchat/chat.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {ChatService} from '../../../services/socketchat/chat.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
   messages: any = [];
   message: string;
   connection: any;
