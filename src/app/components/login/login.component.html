@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center pb-4 pt-3">
+            <span class="text-primary"><i class="fa fa-lock"></i> Client Panel</span> Login
+          </h1>
+          <form name="userform" method="post" #formCtrl="ngForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" required>
+            </div>
+            <input type="button" value="Login" class="btn btn-primary btn-block" (click)="onSubmit()">
+
+            <hr/>
+            <div class="form-group">
+              <button type="button" class="btn btn-block" (click)="signInWithGoogle()">
+                <i class="fa fa-google" aria-hidden="true"></i>
+                Login with Google
+              </button>
+              <button type="button" class="btn btn-block" (click)="signInWithTwitter()">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                Login with Twitter
+              </button>
+              <button type="button" class="btn btn-block" (click)="signInWithGithub()">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                Login with Github
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

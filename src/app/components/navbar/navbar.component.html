@@ -1,29 +1,43 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" routerLink=""><img src="assets/img/angular-icon.svg" style="margin-top: -8px;" width="36px"/></a>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/map" >Map</a></li>
-        <li routerLinkActive="active"><a routerLink="/github" >Github Search</a></li>
-        <li routerLinkActive="active"><a routerLink="/cribs" >Real-Estate</a></li>
-        <li appDropdown routerLinkActive="active">
-          <a routerLink="/movies" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a routerLink="movies/populars">Populars</a></li>
-            <li><a routerLink="movies/thearters">Thearters</a></li>
-          </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/map" >Map</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/github" >Github Search</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/cribs" >Real-Estate</a></li>
+        <li class="nav-item dropdown postsmenu" routerLinkActive="active">
+          <a class="nav-link dropdown-toggle"  routerLink="/movies" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Movies
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+            <a class="dropdown-item" routerLink="movies/populars">Populars</a>
+            <a class="dropdown-item" routerLink="movies/thearters">Thearters</a>
+          </div>
         </li>
-        <li routerLinkActive="active"><a routerLink="/restapp" >REST API</a></li>
-        <li routerLinkActive="active"><a routerLink="/chat" >Socket Chat</a></li>
-        <li routerLinkActive="active"><a routerLink="/meantodo" >Meantodo</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/restapp" >REST API</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/chat" >Socket Chat</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/meantodo" >Meantodo</a></li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
+          <a routerLink="/register" class="nav-link">Register</a>
+        </li>
+        <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
+          <a routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a href="#" class="nav-link">{{ loggedInUser }}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a routerLink="/settings" class="nav-link">Settings</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a style="cursor: pointer" (click)="onLogoutClick($event)" class="nav-link">Logout</a>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

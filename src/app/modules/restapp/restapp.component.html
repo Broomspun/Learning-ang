@@ -7,7 +7,7 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" class="app-sidenav">
-    <nav>
+    <mat-nav-list>
       <a mat-button
          class="nav-link"
          *ngFor="let link of links"
@@ -16,7 +16,7 @@
         <mat-icon>{{link.icon}}</mat-icon>
         {{link.label}}
       </a>
-    </nav>
+    </mat-nav-list>
   </mat-sidenav>
 
   <div class="app-content">

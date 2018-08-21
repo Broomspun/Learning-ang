@@ -4,12 +4,14 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div *ngFor="let movie of theatersList;let i=index" class="col-sm-3">
+      <div *ngFor="let movie of theatersList;let i=index" class="col-sm-3 card">
         <!--<div *ngIf="i < 20" >-->
-        <img *ngIf="movie.poster_path" class="img-responsive" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <img *ngIf="movie.poster_path" class="card-img-top" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <div class="card-title">
         <h4>{{movie.title}}</h4>
+        </div>
         <p>{{movie.release_date}}</p>
-        <p><a class="btn btn-default" routerLink="/movies/{{ movie.id }}">View Details</a></p>
+        <p><a class="btn btn-outline-primary" routerLink="/movies/{{ movie.id }}">View Details</a></p>
         <!--</div>-->
       </div>
     </div>

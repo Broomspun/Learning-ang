@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="angel">
+    <serverData>
+      <paths name="angel">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/angular" local="$PROJECT_DIR$/dist/learning" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

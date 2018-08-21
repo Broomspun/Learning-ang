@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
-import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryDataService} from './shared/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +21,15 @@ import {MeantodoModule} from './modules/meantodo/meantodo.module';
 import {LocationStrategy} from '@angular/common';
 import {HashLocationStrategy} from '@angular/common';
 import {LoadingComponent} from './components/loading/loading.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {AuthService} from './services/auth.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import {SettingService} from './services/setting.service';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +38,9 @@ import {LoadingComponent} from './components/loading/loading.component';
     HomeComponent,
     DropdownDirective,
     LoadingComponent,
+    LoginComponent,
+    RegisterComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +54,13 @@ import {LoadingComponent} from './components/loading/loading.component';
     MovieModule,
     RestappModule,
     SocketchatModule,
-    MeantodoModule
+    MeantodoModule,
+    AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
+    AngularFireAuthModule,
+    FlashMessagesModule.forRoot(),
   ],
   // providers: [],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, SettingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

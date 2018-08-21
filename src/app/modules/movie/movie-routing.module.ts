@@ -5,11 +5,12 @@ import {PopularsComponent} from './populars/populars.component';
 import {TheatersComponent} from './theaters/theaters.component';
 import {MoviesComponent} from './movies/movies.component';
 import {DetailComponent} from './detail/detail.component';
+import {AuthGuard} from '../../guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'movies',
-    component: MovieComponent,
+    component: MovieComponent, canActivate: [AuthGuard],
     children: [
       {
         path: 'populars',

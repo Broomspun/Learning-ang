@@ -29,7 +29,7 @@ export class MovieService {
   }
 
   getMovies(): Observable<any> {
-    console.log('https://api.themoviedb.org/3/search/movie?api_key=' + this.apikey +
+    console.log('ps:htt//api.themoviedb.org/3/search/movie?api_key=' + this.apikey +
       'page=' + this.page + '&query=' + this.query + '&include_adult=true');
 
     return this.http.jsonp('https://api.themoviedb.org/3/search/movie?api_key=' + this.apikey +

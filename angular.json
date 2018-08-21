@@ -24,15 +24,14 @@
               "src/data"
             ],
             "styles": [
-              "vendor/bootstrap/dist/css/bootstrap.min.css",
-              "vendor/html5-boilerplate/dist/css/normalize.css",
-              "vendor/html5-boilerplate/dist/css/main.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "vendor/jquery/dist/jquery.min.js",
-              "vendor/bootstrap/dist/js/bootstrap.min.js",
-              "vendor/html5-boilerplate/dist/js/vendor/modernizr-3.6.0.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/socket.io-client/dist/socket.io.js"
             ]
           },

@@ -1,11 +1,13 @@
-<div class="container">
-  <app-items-list class="col-50" [items]="items"
-                  (selected)="selectItem($event)"
-                  (deleted)="deleteItem($event)">
-  </app-items-list>
+<div class="container-fluid mt-3 mb-3">
+  <div class="row">
+    <app-items-list class="col-sm-6" [items]="items"
+                    (selected)="selectItem($event)"
+                    (deleted)="deleteItem($event)">
+    </app-items-list>
 
-  <app-item-detail class="col-50" [item]="currentItem"
-                   (saved)="saveItem($event)"
-                   (cancelled)="cancel($event)">
-  </app-item-detail>
+    <app-item-detail class="col-sm-6" [item]="currentItem"
+                     (saved)="saveItem($event)"
+                     (cancelled)="cancel($event)">
+    </app-item-detail>
+  </div>
 </div>

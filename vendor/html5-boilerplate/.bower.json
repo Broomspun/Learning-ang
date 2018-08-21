@@ -1,0 +1,15 @@
+{
+  "name": "html5-boilerplate",
+  "homepage": "https://github.com/h5bp/html5-boilerplate",
+  "version": "6.1.0",
+  "_release": "6.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v6.1.0",
+    "commit": "269f72796fab92bb703520fdc0dca1cbcb7ecc92"
+  },
+  "_source": "https://github.com/h5bp/html5-boilerplate.git",
+  "_target": "^6.1.0",
+  "_originalSource": "html5-boilerplate",
+  "_direct": true
+}

@@ -188,31 +188,32 @@
     <div *ngFor="let crib of ( cribs | cribsFilter: priceInfo.min : priceInfo.max  ); let i = index " class="col-sm-4">
       <!--<div *ngFor="let crib of ( cribs  ); let i = index ">-->
 
-      <div class="thumbnail">
-        <img src="assets/img/cribs/{{crib.image}}.jpg"/>
+      <div class="card">
+        <img class="card-img-top" src="assets/img/cribs/{{crib.image}}.jpg"/>
 
-        <div class="caption">
-          <div [hidden]="bShowDetails[i] === true">
-            <h3><i class="glyphicon glyphicon-tag"></i> {{crib.price | currency}}</h3>
-            <h4><i class="glyphicon glyphicon-home"></i> {{crib.address}}
-              <span class="label label-primary label-sm">{{crib.type}}</span>
+        <div class="card-body">
+          <div class="caption">
+            <div [hidden]="bShowDetails[i] === true">
+              <h3><i class="glyphicon glyphicon-tag"></i> {{crib.price | currency}}</h3>
+              <h4><i class="glyphicon glyphicon-home"></i> {{crib.address}}
+                <span class="label label-primary label-sm">{{crib.type}}</span>
+              </h4>
+            </div>
+          </div>
+
+          <button class="btn btn-xs btn-success" [hidden]="bShowDetails[i] === true" (click)="toggleDetails(i)">Details</button>
+          <button class="btn btn-xs btn-danger" style="margin-right: 5px;" [hidden]="bShowDetails[i] != true"  (click)="toggleDetails(i)">Close</button>
+          <button class="btn btn-xs btn-primary" [hidden]="bShowDetails[i] != true" (click)="editCrib(crib)">Edit</button>
+
+          <div class="details" [hidden]="bShowDetails[i] !== true">
+            <h4>
+              <span class="label label-primary">Beds: {{crib.details.bedrooms}}</span>
+              <span class="label label-primary">Baths: {{crib.details.bathrooms}}</span>
+              <span class="label label-primary">SqFt: {{crib.details.area}}</span>
             </h4>
+            <p>{{crib.description}}</p>
           </div>
         </div>
-
-        <button class="btn btn-xs btn-success" [hidden]="bShowDetails[i] === true" (click)="toggleDetails(i)">Details</button>
-        <button class="btn btn-xs btn-danger" style="margin-right: 5px;" [hidden]="bShowDetails[i] != true"  (click)="toggleDetails(i)">Close</button>
-        <button class="btn btn-xs btn-primary" [hidden]="bShowDetails[i] != true" (click)="editCrib(crib)">Edit</button>
-
-        <div class="details" [hidden]="bShowDetails[i] !== true">
-          <h4>
-            <span class="label label-primary">Beds: {{crib.details.bedrooms}}</span>
-            <span class="label label-primary">Baths: {{crib.details.bathrooms}}</span>
-            <span class="label label-primary">SqFt: {{crib.details.area}}</span>
-          </h4>
-          <p>{{crib.description}}</p>
-        </div>
-
       </div>
     </div>
   </div>
